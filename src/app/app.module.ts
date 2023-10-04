@@ -10,6 +10,7 @@ import { CoreModule } from './core/core.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ContatosModule } from './views/contatos/contatos.module';
 import { HttpClientModule } from '@angular/common/http';
+import { CompromissosModule } from './views/compromissos/compromissos.module';
 
 @NgModule({
   // Componentes e diretivas que o Módulo Distribui
@@ -31,6 +32,7 @@ import { HttpClientModule } from '@angular/common/http';
     CoreModule,
     DashboardModule,
     ContatosModule,
+    CompromissosModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

@@ -7,6 +7,8 @@ import { EditarContatoComponent } from './views/contatos/editar-contato/editar-c
 import { ExcluirContatoComponent } from './views/contatos/excluir-contato/excluir-contato.component';
 import { ListarCompromissosComponent } from './views/compromissos/listar-compromissos/listar-compromissos.component';
 import { InserirCompromissoComponent } from './views/compromissos/inserir-compromisso/inserir-compromisso.component';
+import { EditarCompromissoComponent } from './views/compromissos/editar-compromisso/editar-compromisso.component';
+import { ExcluirCompromissoComponent } from './views/compromissos/excluir-compromisso/excluir-compromisso.component';
 
 const routes: Routes = [
   {
@@ -18,7 +20,6 @@ const routes: Routes = [
     path: 'dashboard',
     component: DashboardComponent,
   },
-
   // Contatos
   {
     path: 'contatos/inserir',
@@ -42,8 +43,16 @@ const routes: Routes = [
     component: ListarCompromissosComponent,
   },
   {
-    path: 'compromissos/inserir-compromisso',
+    path: 'compromissos/inserir',
     component: InserirCompromissoComponent,
+  },
+  {
+    path: 'compromissos/editar/:id',
+    component: EditarCompromissoComponent,
+  },
+  {
+    path: 'compromissos/excluir/:id',
+    component: ExcluirCompromissoComponent,
   },
 ];
 

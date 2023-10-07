@@ -81,7 +81,7 @@ export class InserirCompromissoComponent implements OnInit {
 
   processarSucesso(compromisso: FormsCompromissoViewModel) {
     this.toastrService.success(
-      `O contato "${compromisso.assunto}" foi cadastrado com sucesso!`,
+      `O compromisso "${compromisso.assunto}" foi cadastrado com sucesso!`,
       'Sucesso'
     );
 

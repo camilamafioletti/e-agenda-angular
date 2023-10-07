@@ -21,20 +21,18 @@ export class ExcluirCompromissoComponent {
   }
 
   ngOnInit(): void {
-    this.idSelecionado = this.route.snapshot.paramMap.get('id');
-
-    if (!this.idSelecionado) return;
-
-    this.compromissosService
-      .selecionarCompromissoCompletoPorId(this.idSelecionado)
-      .subscribe((res) => {
-        this.compromissoVM = res;
-      });
+    this.compromissoVM = this.route.snapshot.data['compromisso'];
   }
 
   gravar() {
-    this.compromissosService.excluir(this.idSelecionado!).subscribe((res) => {
-      this.router.navigate(['/compromissos', 'listar']);
-    });
+
+    const id = this.route.snapshot.paramMap.get('id');
+
+    if (!id) return;
+
+    this.compromissosService
+      .excluir(id)
+      .subscribe(res => console.log(res));
+        this.router.navigate(['/compromissos', 'listar'])
   }
 }

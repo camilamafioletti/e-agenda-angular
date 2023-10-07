@@ -59,15 +59,13 @@ export class EditarCompromissoComponent implements OnInit{
         this.contatos = res;
       })
 
-      this.idSelecionado = this.route.snapshot.paramMap.get('id');
+      this.compromissoVM = this.route.snapshot.data['compromisso'];
 
-      if (!this.idSelecionado) return;
-  
-      this.compromissoService.selecionarPorId(this.idSelecionado).subscribe((res) => {
-        this.form.patchValue(res);
-        console.log(res);
-        this.form.get('data')?.setValue(res.data.toString().substring(0, 10))
-      });
+      this.form.patchValue(this.compromissoVM);
+
+
+        this.form.patchValue(this.compromissoVM);
+        this.form.get('data')?.setValue(this.compromissoVM.data.toString().substring(0, 10))
     }
 
     campoEstaInvalido(nome: string) {
@@ -96,7 +94,7 @@ export class EditarCompromissoComponent implements OnInit{
   
     processarSucesso(compromisso: FormsCompromissoViewModel) {
       this.toastrService.success(
-        `O contato "${compromisso.assunto}" foi editado com sucesso!`,
+        `O compromisso "${compromisso.assunto}" foi editado com sucesso!`,
         'Sucesso'
       );
   

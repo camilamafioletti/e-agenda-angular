@@ -32,13 +32,9 @@ export class EditarContatoComponent {
       empresa: new FormControl('', [Validators.required]),
     });
 
-    this.idSelecionado = this.route.snapshot.paramMap.get('id');
+    this.contatoVM = this.route.snapshot.data['contato'];
 
-    if (!this.idSelecionado) return;
-
-    this.contatoService.selecionarPorId(this.idSelecionado).subscribe((res) => {
-      this.form.patchValue(res);
-    });
+    this.form.patchValue(this.contatoVM);
   }
 
   gravar() {

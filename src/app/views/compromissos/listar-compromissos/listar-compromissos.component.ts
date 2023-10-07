@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ListarCompromissosViewModel } from '../models/listar-compromissos.view-model';
 import { CompromissoService } from '../services/compromisso.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-listar-compromissos',
@@ -10,12 +11,11 @@ import { CompromissoService } from '../services/compromisso.service';
 export class ListarCompromissosComponent implements OnInit {
   compromissos: ListarCompromissosViewModel[] = [];
 
-  constructor(private compromissoService: CompromissoService){}
+  constructor(
+    private route: ActivatedRoute,
+    ){}
 
   ngOnInit(): void {
-    this.compromissoService.selecionarTodos().subscribe(res => {
-      this.compromissos = res;
-      console.log(this.compromissos);
-    })
+      this.compromissos = this.route.snapshot.data['compromissos'];
   }
 }

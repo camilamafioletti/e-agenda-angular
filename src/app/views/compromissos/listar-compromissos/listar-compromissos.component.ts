@@ -18,17 +18,6 @@ export class ListarCompromissosComponent implements OnInit {
     ){}
 
     ngOnInit(): void {
-      this.route.data.pipe(map((dados) => dados['compromissos'])).subscribe({
-        next: (compromissos) => this.processarSucesso(compromissos),
-        error: (erro) => this.processarFalha(erro),
-      });
+      this.compromissos = this.route.snapshot.data['compromissos'];
     }
-  
-  processarSucesso(compromissos: ListarCompromissosViewModel[]) {
-    this.compromissos = compromissos;
-  }
-
-  processarFalha(erro: Error) {
-    this.toastrService.error(erro.message, 'Error');
-  }
 }

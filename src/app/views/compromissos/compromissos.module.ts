@@ -8,6 +8,10 @@ import { EditarCompromissoComponent } from './editar-compromisso/editar-compromi
 import { ExcluirCompromissoComponent } from './excluir-compromisso/excluir-compromisso.component';
 import { CardCompromissosComponent } from './card-compromissos/card-compromissos.component';
 import 'src/app/extensions/form-group.extension';
+import { CompromissoService } from './services/compromisso.service';
+import { CompromissosRoutingModule } from './compromissos-routing.module';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { ContatosModule } from '../contatos/contatos.module';
 
 @NgModule({
   declarations: [
@@ -19,8 +23,12 @@ import 'src/app/extensions/form-group.extension';
   ],
   imports: [
     CommonModule,
+    CompromissosRoutingModule,
+    NgbModule,
     ReactiveFormsModule,
-    RouterModule
-  ]
+
+    ContatosModule,
+  ],
+  providers: [CompromissoService],
 })
 export class CompromissosModule { }

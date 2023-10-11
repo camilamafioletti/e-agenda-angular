@@ -31,6 +31,14 @@ const routes: Routes = [
         (m) => m.CompromissosModule
       ),
   },
+
+  {
+    path: 'categorias',
+    loadChildren: () =>
+      import('./views/categorias/categorias.module').then(
+        (m) => m.CategoriasModule
+      ),
+  },
 ];
 
 @NgModule({

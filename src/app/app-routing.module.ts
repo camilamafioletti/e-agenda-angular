@@ -39,6 +39,14 @@ const routes: Routes = [
         (m) => m.CategoriasModule
       ),
   },
+
+  {
+    path: 'despesas',
+    loadChildren: () =>
+      import('./views/despesas/despesas.module').then(
+        (m) => m.DespesasModule
+      ),
+  },
 ];
 
 @NgModule({

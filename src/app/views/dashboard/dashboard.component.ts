@@ -8,9 +8,5 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent {
   
-  constructor(private router: Router){}
 
-  navegarPara(rota: string){
-    this.router.navigate([rota]);
-  }
 }

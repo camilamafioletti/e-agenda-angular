@@ -1,4 +1,4 @@
-export class FormsCompromissoViewModel {
+export type FormsCompromissoViewModel = {
     assunto: string;
     tipoLocal: number;
     link: string;
@@ -7,25 +7,5 @@ export class FormsCompromissoViewModel {
     horaInicio: string;
     horaTermino: string;
     nomeContato?: string;
-  
-    constructor(
-      assunto: string,
-      data: Date,
-      tipoLocal: number,
-      link: string,
-      local: string,
-      horaInicio: string,
-      horaTermino: string,
-      contato: string
-    ) {
-      this.assunto = assunto,
-      this.data = data,
-      this.tipoLocal = tipoLocal,
-      this.link = link,
-      this.local = local,
-      this.horaInicio = horaInicio,
-      this.horaTermino = horaTermino,
-      this.nomeContato = contato
-    }
   }
   

@@ -8,12 +8,16 @@ import { NgbTooltipModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormsModule } from '@angular/forms';
 import { TarefasService } from './services/tarefas.service';
 import { ListarTarefasComponent } from './listar-tarefas/listar-tarefas.component';
+import { EditarTarefaComponent } from './editar-tarefa/editar-tarefa.component';
+import { ExcluirTarefaComponent } from './excluir-tarefa/excluir-tarefa.component';
 
 
 @NgModule({
   declarations: [
     InserirTarefaComponent,
-    ListarTarefasComponent
+    ListarTarefasComponent,
+    EditarTarefaComponent,
+    ExcluirTarefaComponent
   ],
   imports: [
     CommonModule,

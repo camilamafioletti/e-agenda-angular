@@ -47,6 +47,14 @@ const routes: Routes = [
         (m) => m.DespesasModule
       ),
   },
+
+  {
+    path: 'tarefas',
+    loadChildren: () =>
+      import('./views/tarefas/tarefas.module').then(
+        (m) => m.TarefasModule
+      ),
+  },
 ];
 
 @NgModule({

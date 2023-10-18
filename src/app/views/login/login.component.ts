@@ -1,16 +1,16 @@
-import { AuthService } from './../../core/auth/services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { TokenViewModel } from 'src/app/core/auth/models/token.view-model';
+import { AuthService } from 'src/app/core/auth/services/auth.service';
 
 @Component({
-  selector: 'app-registro',
-  templateUrl: './registro.component.html',
-  styleUrls: ['./registro.component.css'],
+  selector: 'app-login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.css'],
 })
-export class RegistroComponent implements OnInit {
+export class LoginComponent {
   form?: FormGroup;
 
   constructor(
@@ -22,10 +22,8 @@ export class RegistroComponent implements OnInit {
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      nome: ['', [Validators.required, Validators.minLength(3)]],
       email: ['', [Validators.required, Validators.email]],
       senha: ['', [Validators.required, Validators.minLength(6)]],
-      confirmarSenha: ['', [Validators.required, Validators.minLength(6)]],
     });
   }
 
@@ -33,7 +31,7 @@ export class RegistroComponent implements OnInit {
     return this.form!.get(nome)!.touched && this.form!.get(nome)!.invalid;
   }
 
-  registrar() {
+  login() {
     if (this.form?.invalid) {
       const erros = this.form.validate();
 
@@ -42,9 +40,9 @@ export class RegistroComponent implements OnInit {
       return;
     }
 
-    this.authService.registrar(this.form?.value).subscribe({
+    this.authService.login(this.form?.value).subscribe({
       next: (res) => this.processarSucesso(res),
-      error: (erro) => this.processarFalha(erro),
+      error: (err) => this.processarFalha(err),
     });
   }
 
@@ -57,7 +55,7 @@ export class RegistroComponent implements OnInit {
     this.router.navigate(['/dashboard']);
   }
 
-  processarFalha(erro: Error) {
-    this.toastrService.error(erro.message, 'Erro');
+  processarFalha(err: Error) {
+    this.toastrService.error(err.message, 'Erro');
   }
 }

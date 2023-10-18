@@ -11,6 +11,7 @@ import { NgSelectModule } from '@ng-select/ng-select';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CategoriasModule } from '../categorias/categorias.module';
 import { DespesasService } from './services/despesas.service';
+import 'src/app/extensions/form-group.extension';
 
 
 @NgModule({

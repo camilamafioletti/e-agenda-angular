@@ -3,3 +3,8 @@
     margin: 5px 0 !important;
     margin-right: 5px !important;
 }
+
+body{
+    background: rgb(238,174,202);
+    background: radial-gradient(circle, rgb(165, 160, 162) 0%, rgba(148,187,233,1) 100%);
+}

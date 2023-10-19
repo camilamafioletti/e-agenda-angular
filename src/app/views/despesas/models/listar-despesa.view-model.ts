@@ -1,8 +1,15 @@
-export type ListarDespesaViewModel = {
-    id: string;
-    descricao: string;
-    valor: number;
-    data: Date;
-    formaPagamento: string;
-  };
-  
+export class ListarDespesaViewModel {
+  constructor(
+    public id: string,
+    public descricao: string,
+    public valor: number,
+    public data: Date,
+    public formaPagamento: string
+  ) {
+    this.id = id;
+    this.descricao = descricao;
+    this.valor = valor;
+    this.data = data;
+    this.formaPagamento = formaPagamento;
+  }
+}

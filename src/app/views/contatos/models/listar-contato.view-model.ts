@@ -4,5 +4,6 @@ export type ListarContatoViewModel = {
     telefone: string;
     cargo: string;
     empresa: string;
+    favorito: boolean;
   }
   

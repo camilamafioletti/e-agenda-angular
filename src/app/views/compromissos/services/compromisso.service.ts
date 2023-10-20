@@ -20,7 +20,7 @@ import { LocalStorageService } from 'src/app/core/auth/services/local-storage.se
       compromisso: FormsCompromissoViewModel
     ): Observable<FormsCompromissoViewModel> {
       return this.http
-        .post<any>(this.endpoint, compromisso, this.obterHeadersAutorizacao())
+        .post<any>(this.endpoint, compromisso)
         .pipe(
           map((res) => res.dados),
           catchError((err: HttpErrorResponse) => this.processarErroHttp(err))
@@ -29,26 +29,26 @@ import { LocalStorageService } from 'src/app/core/auth/services/local-storage.se
 
     public editar(id: string, compromisso: FormsCompromissoViewModel) {
       return this.http
-        .put<any>(this.endpoint + id, compromisso, this.obterHeadersAutorizacao())
+        .put<any>(this.endpoint + id, compromisso)
         .pipe(map((res) => res.dados));
     }
   
     public excluir(id: string): Observable<any>{
-      return this.http.delete(this.endpoint + id, this.obterHeadersAutorizacao());
+      return this.http.delete(this.endpoint + id);
     }
   
     public selecionarTodos(): Observable<ListarCompromissosViewModel[]>{
-      return this.http.get<any>(this.endpoint, this.obterHeadersAutorizacao())
+      return this.http.get<any>(this.endpoint)
         .pipe(map(res => res.dados));
     }
   
     public selecionarPorId(id: string): Observable<FormsCompromissoViewModel>{
-      return this.http.get<any>(this.endpoint + id, this.obterHeadersAutorizacao())
+      return this.http.get<any>(this.endpoint + id)
       .pipe(map(res => res.dados));
     }
   
     public selecionarCompromissoCompletoPorId(id: string): Observable<VisualizarCompromissoViewModel>{
-      return this.http.get<any>(this.endpoint + 'visualizacao-completa/' + id, this.obterHeadersAutorizacao())
+      return this.http.get<any>(this.endpoint + 'visualizacao-completa/' + id)
       .pipe(map(res => res.dados));
     }
 
@@ -64,15 +64,5 @@ import { LocalStorageService } from 'src/app/core/auth/services/local-storage.se
   
       return throwError(() => new Error(mensagemErro));
     }
-  
-    private obterHeadersAutorizacao() {
-      const token = this.localStorage.obterDadosLocaisSalvos()?.chave;
-  
-      return {
-        headers: new HttpHeaders({
-          'Content-Type': 'application/json',
-          Authorization: `Bearer ${token}`,
-        }),
-      };
-    }
+
   }

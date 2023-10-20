@@ -1,11 +1,11 @@
 /* Estilos para a barra de navegação */
 .navbar {
-    background-color: #ffffff !important;
+    background-color: #ffffff38 !important;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1) !important;
   }
   
   .navbar-brand {
-    color: #333 !important;
+    color: #106cf7 !important;
   }
   
   .navbar-toggler-icon {
@@ -13,11 +13,11 @@
   }
   
   .nav-link {
-    color: #007bff !important;
+    color: #106cf7 !important;
   }
   
   .nav-link:hover {
-    color: #0056b3 !important;
+    color: #0374ee !important;
   }
   
   .bi-clipboard2-check-fill {
@@ -31,4 +31,6 @@
   .nav-link.router-link-active {
     font-weight: 600 !important;
   }
+
+  
   

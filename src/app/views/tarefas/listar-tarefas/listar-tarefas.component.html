@@ -20,6 +20,35 @@
         </a>
       </div>
 
+      <div class="d-grid d-md-flex gap-1 mt-3">
+        <a
+        (click)="selecionarTodas()"
+        role="button"
+        class="btn btn-outline-primary me-md-1"
+      >
+        <i class="bi bi-menu-button-fill"></i>
+        Todas as Tarefas
+      </a>
+
+      <a
+        (click)="selecionarTarefasConcluidas()"
+        role="button"
+        class="btn btn-outline-primary me-md-1"
+      >
+        <i class="bi bi-check-circle-fill"></i>
+        Concluídas
+      </a>
+
+      <a
+        (click)="selecionarTarefasPendentes()"
+        role="button"
+        class="btn btn-outline-primary me-md-1"
+      >
+        <i class="bi bi-chat-dots-fill"></i>
+        Pendentes
+      </a>
+      </div>
+
       <!-- Listagem de Registros -->
       <div class="row mt-3 g-3 justify-items-sm-center">
         <div *ngFor="let tarefa of tarefas" class="col-12 col-md-6 col-lg-4">
